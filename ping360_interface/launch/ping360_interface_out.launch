@@ -1,0 +1,3 @@
+<launch>
+  <node name="talker_node" pkg="ping360_interface" type="ping360_raw_out.py" output="screen"/>
+</launch>
