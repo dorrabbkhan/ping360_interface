@@ -2,6 +2,7 @@
 Simple script that communicates with the Ping360 and prints output
 """
 from brping import Ping360
+import time
 
 # initialize and connect to ping360
 myPing = Ping360()
@@ -12,11 +13,17 @@ if myPing.initialize() is False:
     print("Failed to initialize Ping!")
     exit(1)
 
-# read data
-data = myPing.transmit()
+# execute infinitely
+while True:
 
-# if data found, print it
-if data:
-    print(data)
-else:
-    print("Failed to get distance data")
+    # read data
+    data = myPing.transmit()
+
+    # if data found, print it
+    if data:
+        print(data)
+    else:
+        print("Failed to get distance data")
+
+    # sleep for a sec
+    time.sleep(1)
